@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="650" viewBox="0 0 1400 650">
+  <defs><style>.title{font:700 28px sans-serif;fill:#17385f}.step{font:700 22px sans-serif;fill:#17385f}.body{font:19px sans-serif;fill:#40566d}.strong{font:700 21px sans-serif;fill:#17385f}</style></defs>
+  <rect width="1400" height="650" rx="20" fill="#fbfdff"/>
+  <text x="700" y="42" text-anchor="middle" class="title">“鼠”的注意力输出：点积 → Softmax → 加权求和</text>
+  <line x1="465" y1="78" x2="465" y2="600" stroke="#d8e3ed" stroke-width="2"/>
+  <line x1="930" y1="78" x2="930" y2="600" stroke="#d8e3ed" stroke-width="2"/>
+  <text x="230" y="95" text-anchor="middle" class="step">① 点积得到相关度分数（÷√2）</text>
+  <g>
+    <rect x="70" y="150" width="320" height="90" rx="12" fill="#e4f4ea" stroke="#2e9d68" stroke-width="3"/>
+    <rect x="70" y="270" width="320" height="90" rx="12" fill="#e4f4ea" stroke="#2e9d68" stroke-width="3"/>
+    <rect x="70" y="390" width="320" height="90" rx="12" fill="#fff3d8" stroke="#c99319" stroke-width="3"/>
+    <text x="230" y="185" text-anchor="middle" class="body">Q鼠 · K猫 = (1,1) · (1,0)</text><text x="230" y="220" text-anchor="middle" class="strong">= 1 / 1.41 = 0.71</text>
+    <text x="230" y="305" text-anchor="middle" class="body">Q鼠 · K追 = (1,1) · (0,1)</text><text x="230" y="340" text-anchor="middle" class="strong">= 1 / 1.41 = 0.71</text>
+    <text x="230" y="425" text-anchor="middle" class="body">Q鼠 · K鼠 = (1,1) · (1,1)</text><text x="230" y="460" text-anchor="middle" class="strong">= 2 / 1.41 = 1.41</text>
+  </g>
+  <text x="700" y="95" text-anchor="middle" class="step">② Softmax 得到注意力权重</text>
+  <line x1="545" y1="510" x2="865" y2="510" stroke="#64788b" stroke-width="3"/><line x1="545" y1="510" x2="545" y2="150" stroke="#64788b" stroke-width="3"/>
+  <g fill="#4b95d1"><rect x="585" y="350" width="65" height="160"/><rect x="685" y="350" width="65" height="160"/></g>
+  <rect x="785" y="190" width="65" height="320" fill="#e67c37"/>
+  <g class="strong" text-anchor="middle"><text x="617" y="335">0.25</text><text x="717" y="335">0.25</text><text x="817" y="175">0.50</text></g>
+  <g class="body" text-anchor="middle"><text x="617" y="545">猫</text><text x="717" y="545">追</text><text x="817" y="545">鼠</text></g>
+  <text x="490" y="330" text-anchor="middle" class="body" transform="rotate(-90 490 330)">权重（和为 1）</text>
+  <text x="1165" y="95" text-anchor="middle" class="step">③ 加权求和 V 得到输出</text>
+  <g fill="#f0eafb" stroke="#7753a6" stroke-width="3">
+    <rect x="1000" y="155" width="330" height="70" rx="10"/><rect x="1000" y="250" width="330" height="70" rx="10"/><rect x="1000" y="345" width="330" height="70" rx="10"/>
+  </g>
+  <g class="body" text-anchor="middle"><text x="1165" y="198">0.25 × V猫 (0.5, 0.1)</text><text x="1165" y="293">0.25 × V追 (0.2, 0.9)</text><text x="1165" y="388">0.50 × V鼠 (0.7, 0.3)</text></g>
+  <line x1="1000" y1="465" x2="1330" y2="465" stroke="#17385f" stroke-width="3"/>
+  <rect x="1015" y="500" width="300" height="75" rx="12" fill="#fff0e8" stroke="#e67c37" stroke-width="3"/>
+  <text x="1165" y="548" text-anchor="middle" class="strong">输出 = (0.525, 0.40)</text>
+  <text x="700" y="625" text-anchor="middle" class="strong">“鼠”最关注自身，同时参考“猫”和“追”，输出是从上下文吸收后的新表示</text>
+</svg>

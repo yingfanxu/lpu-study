@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2563a9"/>
+    </marker>
+    <style>
+      .title{font:700 28px sans-serif;fill:#17385f}.label{font:600 22px sans-serif;fill:#26394f}
+      .body{font:20px sans-serif;fill:#425466}.small{font:18px sans-serif;fill:#60758b}
+    </style>
+  </defs>
+  <rect width="1200" height="500" rx="20" fill="#fbfdff"/>
+  <text x="600" y="45" text-anchor="middle" class="title">文字如何变成模型可计算的矩阵</text>
+
+  <text x="170" y="105" text-anchor="middle" class="label">① 原始文本</text>
+  <rect x="55" y="145" width="230" height="100" rx="14" fill="#fff" stroke="#718096" stroke-width="3"/>
+  <text x="170" y="205" text-anchor="middle" class="body">“中国的首都是”</text>
+
+  <line x1="300" y1="195" x2="385" y2="195" stroke="#2563a9" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="342" y="157" text-anchor="middle" class="small">分词器</text>
+  <text x="342" y="180" text-anchor="middle" class="small">查表</text>
+
+  <text x="565" y="105" text-anchor="middle" class="label">② Token 编号序列</text>
+  <g fill="#fff4d8" stroke="#c99319" stroke-width="3">
+    <rect x="405" y="145" width="75" height="100" rx="12"/><rect x="485" y="145" width="75" height="100" rx="12"/>
+    <rect x="565" y="145" width="75" height="100" rx="12"/><rect x="645" y="145" width="75" height="100" rx="12"/>
+  </g>
+  <g class="body" text-anchor="middle" fill="#765512">
+    <text x="442" y="205">5012</text><text x="522" y="205">8890</text>
+    <text x="602" y="205">1024</text><text x="682" y="205">7756</text>
+  </g>
+
+  <line x1="735" y1="195" x2="815" y2="195" stroke="#2563a9" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="775" y="157" text-anchor="middle" class="small">Embedding</text>
+  <text x="775" y="180" text-anchor="middle" class="small">Gather</text>
+
+  <text x="1000" y="105" text-anchor="middle" class="label">③ 隐藏状态矩阵 [n × d]</text>
+  <g transform="translate(840 145)">
+    <rect width="320" height="150" rx="8" fill="#edf5fc" stroke="#b9cee1" stroke-width="2"/>
+    <g stroke="#fff" stroke-width="4">
+      <path d="M0 37.5H320M0 75H320M0 112.5H320"/>
+      <path d="M40 0V150M80 0V150M120 0V150M160 0V150M200 0V150M240 0V150M280 0V150"/>
+    </g>
+    <g fill="#4b95d1">
+      <rect x="40" y="0" width="40" height="37.5"/><rect x="160" y="0" width="40" height="37.5"/><rect x="280" y="0" width="40" height="37.5"/>
+      <rect x="40" y="37.5" width="40" height="37.5" opacity=".75"/><rect x="160" y="37.5" width="40" height="37.5" opacity=".75"/><rect x="280" y="37.5" width="40" height="37.5" opacity=".75"/>
+      <rect x="40" y="75" width="40" height="37.5" opacity=".5"/><rect x="160" y="75" width="40" height="37.5" opacity=".5"/><rect x="280" y="75" width="40" height="37.5" opacity=".5"/>
+      <rect x="40" y="112.5" width="40" height="37.5" opacity=".3"/><rect x="160" y="112.5" width="40" height="37.5" opacity=".3"/><rect x="280" y="112.5" width="40" height="37.5" opacity=".3"/>
+    </g>
+  </g>
+  <line x1="840" y1="330" x2="1160" y2="330" stroke="#718096" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="1000" y="365" text-anchor="middle" class="small">d 维（隐藏维度）</text>
+  <line x1="815" y1="145" x2="815" y2="295" stroke="#718096" stroke-width="2"/>
+  <text x="790" y="220" text-anchor="middle" class="small" transform="rotate(-90 790 220)">n 个 Token</text>
+
+  <rect x="150" y="410" width="900" height="55" rx="12" fill="#eaf3fb"/>
+  <text x="600" y="445" text-anchor="middle" class="label">此后模型的主要计算，就是让这个矩阵不断与权重矩阵相乘、变换</text>
+</svg>

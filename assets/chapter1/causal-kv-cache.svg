@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="650" viewBox="0 0 1400 650">
+  <defs><style>.title{font:700 28px sans-serif;fill:#17385f}.head{font:700 23px sans-serif;fill:#17385f}.body{font:19px sans-serif;fill:#4b637a}.strong{font:700 20px sans-serif;fill:#17385f}</style></defs>
+  <rect width="1400" height="650" rx="20" fill="#fbfdff"/>
+  <text x="700" y="42" text-anchor="middle" class="title">因果掩码与 KV Cache 的由来</text>
+  <line x1="650" y1="75" x2="650" y2="600" stroke="#d8e3ed" stroke-width="2"/>
+  <text x="325" y="95" text-anchor="middle" class="head">因果掩码：只能关注当前位置及历史</text>
+  <g transform="translate(115 140)">
+    <rect width="420" height="420" fill="#f0f3f7" stroke="#9fb1c3" stroke-width="2"/>
+    <path d="M0 0H70V70H140V140H210V210H280V280H350V350H420V420H0Z" fill="#4b95d1"/>
+    <g stroke="#fff" stroke-width="2"><path d="M70 0V420M140 0V420M210 0V420M280 0V420M350 0V420"/><path d="M0 70H420M0 140H420M0 210H420M0 280H420M0 350H420"/></g>
+    <g font-family="sans-serif" font-size="24" text-anchor="middle">
+      <g fill="#fff"><text x="35" y="45">✓</text><text x="35" y="115">✓</text><text x="105" y="115">✓</text><text x="35" y="185">✓</text><text x="105" y="185">✓</text><text x="175" y="185">✓</text><text x="35" y="255">✓</text><text x="105" y="255">✓</text><text x="175" y="255">✓</text><text x="245" y="255">✓</text><text x="35" y="325">✓</text><text x="105" y="325">✓</text><text x="175" y="325">✓</text><text x="245" y="325">✓</text><text x="315" y="325">✓</text><text x="35" y="395">✓</text><text x="105" y="395">✓</text><text x="175" y="395">✓</text><text x="245" y="395">✓</text><text x="315" y="395">✓</text><text x="385" y="395">✓</text></g>
+      <g fill="#b6c1cc"><text x="105" y="45">×</text><text x="175" y="45">×</text><text x="245" y="45">×</text><text x="315" y="45">×</text><text x="385" y="45">×</text><text x="175" y="115">×</text><text x="245" y="115">×</text><text x="315" y="115">×</text><text x="385" y="115">×</text><text x="245" y="185">×</text><text x="315" y="185">×</text><text x="385" y="185">×</text><text x="315" y="255">×</text><text x="385" y="255">×</text><text x="385" y="325">×</text></g>
+    </g>
+  </g>
+  <text x="325" y="605" text-anchor="middle" class="strong">注意力分数矩阵呈下三角形</text>
+
+  <text x="1020" y="95" text-anchor="middle" class="head">KV Cache：历史 Token 的 K、V 向量列表</text>
+  <g class="body"><text x="720" y="175">生成第 2 个 Token</text><text x="720" y="315">生成第 3 个 Token</text><text x="720" y="455">生成第 4 个 Token</text></g>
+  <g stroke-width="3">
+    <g fill="#e4f4ea" stroke="#2e9d68"><rect x="900" y="135" width="85" height="70" rx="10"/><rect x="900" y="275" width="85" height="70" rx="10"/><rect x="990" y="275" width="85" height="70" rx="10"/><rect x="900" y="415" width="85" height="70" rx="10"/><rect x="990" y="415" width="85" height="70" rx="10"/><rect x="1080" y="415" width="85" height="70" rx="10"/></g>
+    <g fill="#fff0e8" stroke="#e67c37"><rect x="990" y="135" width="85" height="70" rx="10"/><rect x="1080" y="275" width="85" height="70" rx="10"/><rect x="1170" y="415" width="85" height="70" rx="10"/></g>
+  </g>
+  <g class="strong" text-anchor="middle"><text x="942" y="164">K₁</text><text x="942" y="190">V₁</text><text x="1032" y="164">K₂</text><text x="1032" y="190">V₂</text>
+    <text x="942" y="304">K₁</text><text x="942" y="330">V₁</text><text x="1032" y="304">K₂</text><text x="1032" y="330">V₂</text><text x="1122" y="304">K₃</text><text x="1122" y="330">V₃</text>
+    <text x="942" y="444">K₁</text><text x="942" y="470">V₁</text><text x="1032" y="444">K₂</text><text x="1032" y="470">V₂</text><text x="1122" y="444">K₃</text><text x="1122" y="470">V₃</text><text x="1212" y="444">K₄</text><text x="1212" y="470">V₄</text></g>
+  <g class="body"><text x="1090" y="150" fill="#2e9d68">绿色：缓存并复用</text><text x="1090" y="180" fill="#e67c37">橙色：新算并追加</text></g>
+  <rect x="760" y="540" width="520" height="55" rx="12" fill="#eaf3fb"/>
+  <text x="1020" y="575" text-anchor="middle" class="strong">序列越长 → KV Cache 越大 → 每步读取量越多</text>
+</svg>
