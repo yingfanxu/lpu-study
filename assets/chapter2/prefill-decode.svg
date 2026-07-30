@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="700" viewBox="0 0 1400 700">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0 0L0 6L9 3z" fill="#2563a9"/></marker>
+    <style>.title{font:700 30px sans-serif;fill:#17385f}.head{font:700 25px sans-serif;fill:#17385f}.box{font:600 20px sans-serif;fill:#29455f}.body{font:18px sans-serif;fill:#536b80}.strong{font:700 20px sans-serif;fill:#8c4b22}</style>
+  </defs>
+  <rect width="1400" height="700" rx="20" fill="#fbfdff"/>
+  <text x="700" y="45" text-anchor="middle" class="title">Prefill 与 Decode：同一套权重，两种负载形态</text>
+  <line x1="700" y1="80" x2="700" y2="640" stroke="#d8e3ed" stroke-width="2"/>
+
+  <text x="350" y="105" text-anchor="middle" class="head">Prefill：一次处理整个 Prompt</text>
+  <g transform="translate(95 155)">
+    <rect width="210" height="250" rx="12" fill="#eaf3fb" stroke="#2563a9" stroke-width="3"/>
+    <g stroke="#fff" stroke-width="3"><path d="M0 25H210M0 50H210M0 75H210M0 100H210M0 125H210M0 150H210M0 175H210M0 200H210M0 225H210"/></g>
+    <text x="105" y="285" text-anchor="middle" class="box">[S × d] 激活矩阵</text>
+    <text x="105" y="315" text-anchor="middle" class="body">S 个 Prompt Token</text>
+  </g>
+  <text x="340" y="285" text-anchor="middle" class="head">×</text>
+  <g transform="translate(390 155)">
+    <rect width="210" height="250" rx="12" fill="#fff4d8" stroke="#c99319" stroke-width="3"/>
+    <g stroke="#fff" stroke-width="3"><path d="M0 25H210M0 50H210M0 75H210M0 100H210M0 125H210M0 150H210M0 175H210M0 200H210M0 225H210"/><path d="M21 0V250M42 0V250M63 0V250M84 0V250M105 0V250M126 0V250M147 0V250M168 0V250M189 0V250"/></g>
+    <text x="105" y="285" text-anchor="middle" class="box">[d × d] 权重矩阵</text>
+    <text x="105" y="315" text-anchor="middle" class="body">加载一次，复用 S 次</text>
+  </g>
+  <rect x="170" y="520" width="360" height="55" rx="12" fill="#dff3e9" stroke="#249c69" stroke-width="3"/>
+  <text x="350" y="555" text-anchor="middle" class="box">GEMM · 高复用 · 通常偏算力受限</text>
+  <text x="350" y="610" text-anchor="middle" class="strong">主要影响 TTFT</text>
+
+  <text x="1050" y="105" text-anchor="middle" class="head">Decode：每步只处理一个新 Token</text>
+  <g transform="translate(770 255)">
+    <rect width="235" height="45" rx="10" fill="#eaf3fb" stroke="#2563a9" stroke-width="3"/>
+    <text x="117" y="30" text-anchor="middle" class="box">[1 × d] 新 Token</text>
+  </g>
+  <text x="1035" y="290" text-anchor="middle" class="head">×</text>
+  <g transform="translate(1080 155)">
+    <rect width="210" height="250" rx="12" fill="#fff4d8" stroke="#c99319" stroke-width="3"/>
+    <g stroke="#fff" stroke-width="3"><path d="M0 25H210M0 50H210M0 75H210M0 100H210M0 125H210M0 150H210M0 175H210M0 200H210M0 225H210"/><path d="M21 0V250M42 0V250M63 0V250M84 0V250M105 0V250M126 0V250M147 0V250M168 0V250M189 0V250"/></g>
+    <text x="105" y="285" text-anchor="middle" class="box">[d × d] 权重矩阵</text>
+    <text x="105" y="315" text-anchor="middle" class="body">每生成一步重新读取</text>
+  </g>
+  <path d="M1185 145C1330 105 1350 410 1210 430" fill="none" stroke="#e67c37" stroke-width="4" marker-end="url(#a)"/>
+  <text x="1280" y="280" text-anchor="middle" class="body" transform="rotate(90 1280 280)">逐 Token 循环</text>
+  <rect x="850" y="520" width="400" height="55" rx="12" fill="#fff0e8" stroke="#e67c37" stroke-width="3"/>
+  <text x="1050" y="555" text-anchor="middle" class="box">GEMV · 低复用 · 通常偏带宽受限</text>
+  <text x="1050" y="610" text-anchor="middle" class="strong">主要影响 TPOT</text>
+  <rect x="330" y="655" width="740" height="35" rx="10" fill="#edf4fa"/>
+  <text x="700" y="680" text-anchor="middle" class="box">增大 Decode Batch：多个请求共享一次权重读取，GEMV 变为“瘦 GEMM”</text>
+</svg>

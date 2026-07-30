@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760">
+  <defs><style>.title{font:700 30px sans-serif;fill:#17385f}.head{font:700 22px sans-serif;fill:#17385f}.body{font:18px sans-serif;fill:#536b80}.strong{font:700 19px sans-serif;fill:#8c4b22}</style></defs>
+  <rect width="1400" height="760" rx="20" fill="#fbfdff"/>
+  <text x="700" y="45" text-anchor="middle" class="title">Roofline 模型：H100（989 TFLOPs / 3.35 TB/s）示例</text>
+  <g transform="translate(130 105)">
+    <line x1="0" y1="530" x2="1120" y2="530" stroke="#526b82" stroke-width="4"/>
+    <line x1="0" y1="530" x2="0" y2="20" stroke="#526b82" stroke-width="4"/>
+    <text x="560" y="590" text-anchor="middle" class="head">算术强度 AI（FLOPs/Byte，对数坐标）</text>
+    <text x="-270" y="-70" text-anchor="middle" class="head" transform="rotate(-90)">可达性能（TFLOPs，对数坐标）</text>
+
+    <path d="M0 500L700 100H1080" fill="none" stroke="#2563a9" stroke-width="6"/>
+    <text x="330" y="260" class="head" transform="rotate(-29 330 260)">带宽上限：性能 = AI × B</text>
+    <text x="855" y="80" text-anchor="middle" class="head">算力上限：性能 = P</text>
+    <line x1="700" y1="100" x2="700" y2="530" stroke="#8da2b5" stroke-width="3" stroke-dasharray="8 7"/>
+    <circle cx="700" cy="100" r="8" fill="#17385f"/>
+    <text x="720" y="135" class="head">拐点 AI* ≈ 295 FLOPs/Byte</text>
+
+    <circle cx="170" cy="405" r="16" fill="#e67c37" stroke="#fff" stroke-width="4"/>
+    <text x="190" y="390" class="strong">7B Decode，Batch=1</text>
+    <text x="190" y="417" class="body">AI≈1 · 可达约 3.35 TFLOPs</text>
+    <text x="190" y="444" class="strong">计算利用率仅约 0.34%</text>
+    <circle cx="430" cy="255" r="16" fill="#c99319" stroke="#fff" stroke-width="4"/>
+    <text x="450" y="240" class="strong">Decode，Batch=16</text>
+    <text x="450" y="267" class="body">理想 AI≈16 · 仍处带宽受限区</text>
+    <circle cx="850" cy="100" r="16" fill="#249c69" stroke="#fff" stroke-width="4"/>
+    <text x="875" y="145" class="strong">Prefill / 足够大 Batch</text>
+    <text x="875" y="172" class="body">AI≥295 时进入算力受限区</text>
+
+    <text x="250" y="490" text-anchor="middle" class="head">Memory-bound 区域</text>
+    <text x="900" y="490" text-anchor="middle" class="head">Compute-bound 区域</text>
+    <path d="M20 545V525M170 545V525M430 545V525M700 545V525M1000 545V525" stroke="#526b82" stroke-width="3"/>
+    <g class="body" text-anchor="middle"><text x="20" y="570">低</text><text x="170" y="570">1</text><text x="430" y="570">16</text><text x="700" y="570">295</text><text x="1000" y="570">高</text></g>
+  </g>
+  <rect x="310" y="700" width="780" height="45" rx="12" fill="#eaf3fb"/>
+  <text x="700" y="730" text-anchor="middle" class="head">可达性能 = min（峰值算力 P，算术强度 AI × 峰值带宽 B）</text>
+</svg>

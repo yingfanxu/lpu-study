@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760">
+  <defs><style>.title{font:700 30px sans-serif;fill:#17385f}.head{font:700 21px sans-serif;fill:#17385f}.body{font:18px sans-serif;fill:#536b80}.strong{font:700 19px sans-serif;fill:#c93c2b}</style></defs>
+  <rect width="1400" height="760" rx="20" fill="#fbfdff"/>
+  <text x="700" y="48" text-anchor="middle" class="title">Llama-2-7B：KV Cache 与权重的存储占用对比</text>
+  <text x="700" y="82" text-anchor="middle" class="body">FP16 · Batch=8 · L=32 · n_kv=32 · d_head=128</text>
+
+  <g transform="translate(150 120)">
+    <line x1="0" y1="500" x2="1120" y2="500" stroke="#526b82" stroke-width="3"/>
+    <line x1="0" y1="500" x2="0" y2="20" stroke="#526b82" stroke-width="3"/>
+    <g stroke="#dbe5ee" stroke-width="2" stroke-dasharray="5 5"><line x1="0" y1="430" x2="1120" y2="430"/><line x1="0" y1="270" x2="1120" y2="270"/><line x1="0" y1="110" x2="1120" y2="110"/></g>
+    <g class="body" text-anchor="end"><text x="-15" y="436">10</text><text x="-15" y="276">100</text><text x="-15" y="116">1000</text></g>
+    <text x="-255" y="-85" text-anchor="middle" class="head" transform="rotate(-90)">存储占用（GB，对数轴）</text>
+
+    <g stroke="#e4ebf2" stroke-width="2"><line x1="55" y1="20" x2="55" y2="500"/><line x1="200" y1="20" x2="200" y2="500"/><line x1="345" y1="20" x2="345" y2="500"/><line x1="490" y1="20" x2="490" y2="500"/><line x1="635" y1="20" x2="635" y2="500"/><line x1="780" y1="20" x2="780" y2="500"/><line x1="925" y1="20" x2="925" y2="500"/><line x1="1070" y1="20" x2="1070" y2="500"/></g>
+    <g class="body" text-anchor="middle"><text x="55" y="535">1K</text><text x="200" y="535">2K</text><text x="345" y="535">4K</text><text x="490" y="535">8K</text><text x="635" y="535">16K</text><text x="780" y="535">32K</text><text x="925" y="535">64K</text><text x="1070" y="535">128K</text></g>
+    <text x="560" y="585" text-anchor="middle" class="head">序列长度（Token）</text>
+
+    <path d="M55 410L200 410L345 410L490 410L635 410L780 410L925 410L1070 410" fill="none" stroke="#1768ac" stroke-width="6"/>
+    <g fill="#1768ac"><rect x="47" y="402" width="16" height="16"/><rect x="192" y="402" width="16" height="16"/><rect x="337" y="402" width="16" height="16"/><rect x="482" y="402" width="16" height="16"/><rect x="627" y="402" width="16" height="16"/><rect x="772" y="402" width="16" height="16"/><rect x="917" y="402" width="16" height="16"/><rect x="1062" y="402" width="16" height="16"/></g>
+
+    <path d="M55 495L200 447L345 399L490 351L635 303L780 255L925 207L1070 159L1070 500L55 500Z" fill="#f7d9c5" opacity=".45"/>
+    <path d="M55 495L200 447L345 399L490 351L635 303L780 255L925 207L1070 159" fill="none" stroke="#e67c37" stroke-width="6"/>
+    <g fill="#e67c37"><circle cx="55" cy="495" r="9"/><circle cx="200" cy="447" r="9"/><circle cx="345" cy="399" r="9"/><circle cx="490" cy="351" r="9"/><circle cx="635" cy="303" r="9"/><circle cx="780" cy="255" r="9"/><circle cx="925" cy="207" r="9"/><circle cx="1070" cy="159" r="9"/></g>
+
+    <line x1="345" y1="20" x2="345" y2="500" stroke="#718096" stroke-width="3" stroke-dasharray="5 5"/>
+    <path d="M520 315L360 390" stroke="#c93c2b" stroke-width="4"/>
+    <text x="525" y="300" class="strong">约 4K 后，KV Cache 超过权重</text>
+
+    <g transform="translate(35 35)"><line x1="0" y1="0" x2="45" y2="0" stroke="#1768ac" stroke-width="6"/><rect x="18" y="-8" width="16" height="16" fill="#1768ac"/><text x="60" y="7" class="head">权重（FP16，固定约 13.4 GB）</text><line x1="0" y1="38" x2="45" y2="38" stroke="#e67c37" stroke-width="6"/><circle cx="26" cy="38" r="9" fill="#e67c37"/><text x="60" y="45" class="head">KV Cache（随序列长度线性增长）</text></g>
+  </g>
+  <rect x="250" y="700" width="900" height="42" rx="12" fill="#eaf3fb"/>
+  <text x="700" y="728" text-anchor="middle" class="head">1K≈4.3 GB · 4K≈17.2 GB · 32K≈137 GB · 128K≈550 GB</text>
+</svg>
