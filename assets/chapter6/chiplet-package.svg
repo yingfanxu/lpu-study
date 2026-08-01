@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="760" viewBox="0 0 1500 760">
+  <defs><style>.title{font:700 34px sans-serif;fill:#17385f}.h{font:700 24px sans-serif;fill:#17385f}.b{font:18px sans-serif;fill:#506a80}.w{font:700 20px sans-serif;fill:#fff}.n{font:700 18px sans-serif;fill:#17385f}</style></defs>
+  <rect width="1500" height="760" rx="24" fill="#fbfdff"/><text x="750" y="55" text-anchor="middle" class="title">Chiplet：在 2.5D 封装中组合计算、IO、SRAM 与 HBM</text>
+  <rect x="80" y="575" width="1340" height="90" rx="20" fill="#b9c9d6"/><text x="750" y="630" text-anchor="middle" class="h">封装基板</text>
+  <rect x="160" y="470" width="1180" height="105" rx="18" fill="#dceafa" stroke="#2563a9" stroke-width="3"/><text x="750" y="532" text-anchor="middle" class="h">硅中介层 / Bridge：细间距高密度互连</text>
+  <rect x="240" y="225" width="325" height="245" rx="20" fill="#2563a9"/><text x="402" y="315" text-anchor="middle" class="w">计算 Die 0</text><text x="402" y="355" text-anchor="middle" class="w">矩阵引擎 + SRAM</text><text x="402" y="410" text-anchor="middle" class="w">UCIe / 私有 D2D</text>
+  <rect x="600" y="225" width="325" height="245" rx="20" fill="#2563a9"/><text x="762" y="315" text-anchor="middle" class="w">计算 Die 1</text><text x="762" y="355" text-anchor="middle" class="w">矩阵引擎 + SRAM</text><text x="762" y="410" text-anchor="middle" class="w">UCIe / 私有 D2D</text>
+  <rect x="960" y="280" width="205" height="190" rx="20" fill="#e67c37"/><text x="1062" y="355" text-anchor="middle" class="w">IO Die</text><text x="1062" y="395" text-anchor="middle" class="w">SerDes / PCIe</text>
+  <g fill="#249c69"><rect x="75" y="285" width="125" height="185" rx="15"/><rect x="1200" y="285" width="125" height="185" rx="15"/></g><g class="w" text-anchor="middle"><text x="137" y="360">HBM</text><text x="137" y="395">Stack</text><text x="1262" y="360">HBM</text><text x="1262" y="395">Stack</text></g>
+  <path d="M565 345H600" stroke="#fff" stroke-width="5"/><text x="582" y="205" text-anchor="middle" class="n">跨 die 边界</text><path d="M582 215V330" stroke="#e67c37" stroke-width="3" stroke-dasharray="8 8"/>
+  <rect x="225" y="95" width="1050" height="75" rx="16" fill="#fff4d8"/><text x="750" y="130" text-anchor="middle" class="h">切分原则：沿通信最稀疏的界面下刀</text><text x="750" y="158" text-anchor="middle" class="b">不要让高频细粒度数据反复穿越 D2D 链路</text>
+  <text x="750" y="715" text-anchor="middle" class="b">封装规模扩大后，供电、时钟、复位、DFT、良率与散热都成为系统级问题</text>
+</svg>
