@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0 0L0 6L9 3z" fill="#2563a9"/></marker><style>.t{font:700 30px sans-serif;fill:#17385f}.h{font:700 21px sans-serif;fill:#29455f}.b{font:18px sans-serif;fill:#536b80}.p{font:700 19px sans-serif;fill:#fff}</style></defs>
+  <rect width="1200" height="700" rx="20" fill="#fbfdff"/><text x="600" y="46" text-anchor="middle" class="t">3×3 权重驻留脉动阵列</text>
+  <g transform="translate(350 135)">
+    <g fill="#4b95d1" stroke="#1768ac" stroke-width="4"><rect x="0" y="0" width="105" height="105" rx="12"/><rect x="145" y="0" width="105" height="105" rx="12"/><rect x="290" y="0" width="105" height="105" rx="12"/><rect x="0" y="145" width="105" height="105" rx="12"/><rect x="145" y="145" width="105" height="105" rx="12"/><rect x="290" y="145" width="105" height="105" rx="12"/><rect x="0" y="290" width="105" height="105" rx="12"/><rect x="145" y="290" width="105" height="105" rx="12"/><rect x="290" y="290" width="105" height="105" rx="12"/></g>
+    <g class="p" text-anchor="middle"><text x="52" y="45">PE</text><text x="52" y="75">W₁₁</text><text x="197" y="45">PE</text><text x="197" y="75">W₁₂</text><text x="342" y="45">PE</text><text x="342" y="75">W₁₃</text><text x="52" y="190">PE</text><text x="52" y="220">W₂₁</text><text x="197" y="190">PE</text><text x="197" y="220">W₂₂</text><text x="342" y="190">PE</text><text x="342" y="220">W₂₃</text><text x="52" y="335">PE</text><text x="52" y="365">W₃₁</text><text x="197" y="335">PE</text><text x="197" y="365">W₃₂</text><text x="342" y="335">PE</text><text x="342" y="365">W₃₃</text></g>
+    <g stroke="#2563a9" stroke-width="4" marker-end="url(#a)"><path d="M105 52H140M250 52H285M105 197H140M250 197H285M105 342H140M250 342H285"/><path d="M52 105V140M197 105V140M342 105V140M52 250V285M197 250V285M342 250V285"/></g>
+  </g>
+  <g class="h"><text x="80" y="220">激活 A 逐拍流入</text><text x="80" y="250">每个值沿途复用</text><text x="850" y="220">权重 W 驻留</text><text x="850" y="250">装载一次，多拍使用</text><text x="850" y="390">部分和只走局部连接</text><text x="850" y="420">不反复访问 SRAM</text></g>
+  <g stroke="#e67c37" stroke-width="4" marker-end="url(#a)"><path d="M250 210H340"/><path d="M250 355H340"/><path d="M250 500H340"/></g>
+  <rect x="200" y="600" width="800" height="55" rx="12" fill="#eaf3fb"/><text x="600" y="635" text-anchor="middle" class="h">核心收益：SRAM 只在阵列边缘供数，PE 内部通过邻居连接完成复用</text>
+</svg>
