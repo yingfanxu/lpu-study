@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760">
+  <defs><style>.title{font:700 34px sans-serif;fill:#17385f}.h{font:700 25px sans-serif;fill:#17385f}.b{font:19px sans-serif;fill:#445f78}.w{font:700 25px sans-serif;fill:#fff}.s{font:18px sans-serif;fill:#fff}</style></defs>
+  <rect width="1400" height="760" rx="24" fill="#fbfdff"/>
+  <text x="700" y="55" text-anchor="middle" class="title">推理芯片的存储金字塔</text>
+  <polygon points="700,105 940,265 460,265" fill="#2563a9"/>
+  <text x="700" y="180" text-anchor="middle" class="w">片上 SRAM</text><text x="700" y="218" text-anchor="middle" class="s">MB 级 · 亚纳秒 · 极高带宽</text>
+  <polygon points="448,285 952,285 1160,465 240,465" fill="#249c69"/>
+  <text x="700" y="365" text-anchor="middle" class="w">HBM</text><text x="700" y="405" text-anchor="middle" class="s">几十至数百 GB · TB/s · 2.5D 近封装</text>
+  <polygon points="225,485 1175,485 1320,665 80,665" fill="#e67c37"/>
+  <text x="700" y="570" text-anchor="middle" class="w">DDR / LPDDR</text><text x="700" y="610" text-anchor="middle" class="s">容量大 · 成本低 · 带宽受封装引脚限制</text>
+  <text x="1090" y="180" class="h">越向上</text><text x="1090" y="220" class="b">延迟更低</text><text x="1090" y="252" class="b">带宽更高</text><text x="1090" y="284" class="b">容量更小</text>
+  <text x="120" y="700" class="b">设计目标：让数据在最合适的层级停留，并把片外流量压到理论下限</text>
+</svg>

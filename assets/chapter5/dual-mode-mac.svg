@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="700" viewBox="0 0 1400 700">
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0 0L0 6L9 3z" fill="#2563a9"/></marker><style>.title{font:700 34px sans-serif;fill:#17385f}.h{font:700 23px sans-serif;fill:#17385f}.b{font:19px sans-serif;fill:#506a80}.w{font:700 22px sans-serif;fill:#fff}</style></defs>
+  <rect width="1400" height="700" rx="24" fill="#fbfdff"/><text x="700" y="55" text-anchor="middle" class="title">INT8 / INT4 双模 MAC 数据通路</text>
+  <rect x="60" y="155" width="170" height="90" rx="16" fill="#2563a9"/><text x="145" y="210" text-anchor="middle" class="w">a[7:0]</text><rect x="60" y="310" width="170" height="90" rx="16" fill="#2563a9"/><text x="145" y="365" text-anchor="middle" class="w">w[7:0]</text>
+  <path d="M245 200H360M245 355H360" stroke="#2563a9" stroke-width="5" marker-end="url(#a)"/>
+  <rect x="375" y="120" width="280" height="150" rx="18" fill="#dceafa" stroke="#2563a9" stroke-width="3"/><text x="515" y="170" text-anchor="middle" class="h">INT8 模式</text><text x="515" y="220" text-anchor="middle" class="b">1 × 8-bit 乘法</text>
+  <rect x="375" y="305" width="280" height="180" rx="18" fill="#dff3e9" stroke="#249c69" stroke-width="3"/><text x="515" y="355" text-anchor="middle" class="h">INT4 模式</text><text x="515" y="400" text-anchor="middle" class="b">高半字节 4×4</text><text x="515" y="438" text-anchor="middle" class="b">低半字节 4×4</text>
+  <path d="M670 195H785M670 395H785" stroke="#2563a9" stroke-width="5" marker-end="url(#a)"/>
+  <rect x="800" y="220" width="230" height="150" rx="18" fill="#fff4d8" stroke="#c99319" stroke-width="3"/><text x="915" y="275" text-anchor="middle" class="h">模式选择</text><text x="915" y="320" text-anchor="middle" class="b">prod8 / 两个子积之和</text>
+  <path d="M1045 295H1135" stroke="#2563a9" stroke-width="5" marker-end="url(#a)"/><rect x="1150" y="220" width="190" height="150" rx="18" fill="#e67c37"/><text x="1245" y="275" text-anchor="middle" class="w">32-bit</text><text x="1245" y="315" text-anchor="middle" class="w">累加器</text>
+  <rect x="220" y="560" width="960" height="85" rx="16" fill="#eaf3fb"/><text x="700" y="600" text-anchor="middle" class="h">模式按 tile 准静态切换；低位乘法器复用，累加器保持宽位</text>
+</svg>

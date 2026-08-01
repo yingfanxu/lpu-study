@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="650" viewBox="0 0 1400 650">
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0 0L0 6L9 3z" fill="#2563a9"/></marker><style>.title{font:700 34px sans-serif;fill:#17385f}.h{font:700 23px sans-serif;fill:#17385f}.b{font:19px sans-serif;fill:#506a80}.n{font:700 21px monospace;fill:#17385f}</style></defs>
+  <rect width="1400" height="650" rx="24" fill="#fbfdff"/><text x="700" y="55" text-anchor="middle" class="title">从 FP16 权重到 INT4：缩放、取整、反量化</text>
+  <rect x="60" y="135" width="300" height="210" rx="18" fill="#dceafa" stroke="#2563a9" stroke-width="3"/><text x="210" y="185" text-anchor="middle" class="h">原始权重 x</text><text x="210" y="245" text-anchor="middle" class="n">0.31  −0.52</text><text x="210" y="290" text-anchor="middle" class="n">0.08   0.74</text>
+  <path d="M375 240H490" stroke="#2563a9" stroke-width="5" marker-end="url(#a)"/><text x="430" y="215" text-anchor="middle" class="b">÷ s</text>
+  <rect x="505" y="135" width="300" height="210" rx="18" fill="#fff4d8" stroke="#c99319" stroke-width="3"/><text x="655" y="185" text-anchor="middle" class="h">INT4：q = round(x/s)</text><text x="655" y="245" text-anchor="middle" class="n">3  −5</text><text x="655" y="290" text-anchor="middle" class="n">1   7</text>
+  <path d="M820 240H935" stroke="#2563a9" stroke-width="5" marker-end="url(#a)"/><text x="875" y="215" text-anchor="middle" class="b">× s</text>
+  <rect x="950" y="135" width="390" height="210" rx="18" fill="#dff3e9" stroke="#249c69" stroke-width="3"/><text x="1145" y="185" text-anchor="middle" class="h">近似恢复：s × q</text><text x="1145" y="245" text-anchor="middle" class="n">0.318  −0.530</text><text x="1145" y="290" text-anchor="middle" class="n">0.106   0.742</text>
+  <rect x="220" y="430" width="960" height="130" rx="18" fill="#eaf3fb"/><text x="700" y="475" text-anchor="middle" class="h">s = max(|x|) / 7 = 0.74 / 7 ≈ 0.106</text><text x="700" y="515" text-anchor="middle" class="b">每组共享一个 scale；分组越小精度越高，元数据与硬件开销也越大</text>
+</svg>

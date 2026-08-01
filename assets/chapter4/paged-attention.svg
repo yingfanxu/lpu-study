@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760">
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0 0L0 6L9 3z" fill="#2563a9"/></marker><style>.title{font:700 34px sans-serif;fill:#17385f}.h{font:700 23px sans-serif;fill:#17385f}.b{font:18px sans-serif;fill:#506a80}.n{font:700 20px monospace;fill:#17385f}</style></defs>
+  <rect width="1400" height="760" rx="24" fill="#fbfdff"/><text x="700" y="55" text-anchor="middle" class="title">PagedAttention：逻辑连续，物理离散</text>
+  <text x="155" y="120" text-anchor="middle" class="h">请求的逻辑 KV 页</text>
+  <g fill="#dceafa" stroke="#2563a9" stroke-width="3"><rect x="60" y="155" width="190" height="70" rx="12"/><rect x="60" y="245" width="190" height="70" rx="12"/><rect x="60" y="335" width="190" height="70" rx="12"/><rect x="60" y="425" width="190" height="70" rx="12"/></g>
+  <g text-anchor="middle" class="n"><text x="155" y="198">逻辑页 0</text><text x="155" y="288">逻辑页 1</text><text x="155" y="378">逻辑页 2</text><text x="155" y="468">逻辑页 3</text></g>
+  <text x="500" y="120" text-anchor="middle" class="h">块表 / 页表</text><rect x="390" y="155" width="220" height="340" rx="18" fill="#fff4d8" stroke="#c99319" stroke-width="3"/>
+  <g class="n"><text x="430" y="205">0 → 6</text><text x="430" y="275">1 → 1</text><text x="430" y="345">2 → 7</text><text x="430" y="415">3 → 3</text></g>
+  <path d="M265 325H375" stroke="#2563a9" stroke-width="5" marker-end="url(#a)"/><path d="M625 325H735" stroke="#2563a9" stroke-width="5" marker-end="url(#a)"/>
+  <text x="1040" y="120" text-anchor="middle" class="h">HBM 物理页池</text>
+  <g stroke="#249c69" stroke-width="3"><rect x="760" y="155" width="190" height="80" rx="12" fill="#eef8f3"/><rect x="970" y="155" width="190" height="80" rx="12" fill="#dff3e9"/><rect x="1180" y="155" width="160" height="80" rx="12" fill="#eef8f3"/><rect x="760" y="255" width="190" height="80" rx="12" fill="#dff3e9"/><rect x="970" y="255" width="190" height="80" rx="12" fill="#eef8f3"/><rect x="1180" y="255" width="160" height="80" rx="12" fill="#eef8f3"/><rect x="760" y="355" width="190" height="80" rx="12" fill="#dff3e9"/><rect x="970" y="355" width="190" height="80" rx="12" fill="#dff3e9"/></g>
+  <g text-anchor="middle" class="n"><text x="855" y="205">页 0</text><text x="1065" y="205">页 1</text><text x="1260" y="205">页 2</text><text x="855" y="305">页 3</text><text x="1065" y="305">页 4</text><text x="1260" y="305">页 5</text><text x="855" y="405">页 6</text><text x="1065" y="405">页 7</text></g>
+  <rect x="160" y="590" width="1080" height="90" rx="16" fill="#eaf3fb"/><text x="700" y="630" text-anchor="middle" class="h">DMA：查表 → Gather 离散页 → 流水搬入注意力引擎</text><text x="700" y="660" text-anchor="middle" class="b">页满时追加新物理页；不同请求可共享只读前缀页</text>
+</svg>
