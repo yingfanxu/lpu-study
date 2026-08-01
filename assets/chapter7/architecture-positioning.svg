@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="920" viewBox="0 0 1500 920">
+  <defs>
+    <style>.title{font:700 36px sans-serif;fill:#17385f}.axis{font:22px sans-serif;fill:#506070}.name{font:700 23px sans-serif;fill:#17385f}.note{font:18px sans-serif}.footer{font:700 22px sans-serif;fill:#17385f}</style>
+  </defs>
+  <rect width="1500" height="920" rx="24" fill="#fbfdff"/>
+  <text x="750" y="60" text-anchor="middle" class="title">五种代表性架构的定位</text>
+
+  <path d="M160 745V130M160 745H1370" fill="none" stroke="#69798a" stroke-width="3"/>
+  <path d="M245 205L1270 675" fill="none" stroke="#c9d3dc" stroke-width="5" stroke-dasharray="16 12"/>
+
+  <text x="765" y="805" text-anchor="middle" class="axis">通用性 / 算子覆盖 / 生态成熟度　→</text>
+  <text x="72" y="440" text-anchor="middle" class="axis" transform="rotate(-90 72 440)">单位负载的能效与面积效率　→</text>
+
+  <g>
+    <circle cx="350" cy="225" r="52" fill="#f9e3d3" stroke="#e67c37" stroke-width="4" opacity=".8"/>
+    <circle cx="350" cy="225" r="11" fill="#e67c37"/>
+    <text x="260" y="158" class="name">Groq LPU</text>
+    <text x="218" y="190" class="note" fill="#e67c37">专用化红利至上</text>
+    <text x="218" y="216" class="note" fill="#6d7885">灵活性低</text>
+  </g>
+
+  <g>
+    <circle cx="470" cy="365" r="52" fill="#e7dcf3" stroke="#7753a6" stroke-width="4" opacity=".8"/>
+    <circle cx="470" cy="365" r="11" fill="#7753a6"/>
+    <text x="335" y="448" class="name">Cerebras WSE</text>
+    <text x="335" y="414" class="note" fill="#7753a6">晶圆级集成</text>
+  </g>
+
+  <g>
+    <circle cx="700" cy="382" r="58" fill="#d9eaf7" stroke="#2563a9" stroke-width="4" opacity=".85"/>
+    <circle cx="700" cy="382" r="11" fill="#2563a9"/>
+    <text x="540" y="286" class="name">Google TPU（v5 / Ironwood）</text>
+    <text x="620" y="324" class="note" fill="#2563a9">自有负载可控</text>
+  </g>
+
+  <g>
+    <circle cx="890" cy="500" r="52" fill="#d9f0e5" stroke="#249c69" stroke-width="4" opacity=".85"/>
+    <circle cx="890" cy="500" r="11" fill="#249c69"/>
+    <text x="940" y="575" class="name">AWS Trainium / Inferentia</text>
+    <text x="940" y="536" class="note" fill="#249c69">云规模 TCO</text>
+  </g>
+
+  <g>
+    <circle cx="1190" cy="650" r="58" fill="#d9eaf7" stroke="#519bd3" stroke-width="4" opacity=".85"/>
+    <circle cx="1190" cy="650" r="11" fill="#397fbd"/>
+    <text x="1000" y="560" class="name">NVIDIA GPU（H100 / B200）</text>
+    <text x="1110" y="600" class="note" fill="#519bd3">通用性 + 生态</text>
+  </g>
+
+  <text x="1030" y="710" class="note" fill="#6d7885">专用化红利 ↔ 算法演进风险</text>
+  <text x="1040" y="738" class="note" fill="#6d7885">是这条对角线上的永恒权衡</text>
+
+  <rect x="250" y="842" width="1000" height="54" rx="14" fill="#eaf3fb"/>
+  <text x="750" y="877" text-anchor="middle" class="footer">没有“最好的架构”，只有与负载、团队和商业模式最匹配的架构</text>
+</svg>
